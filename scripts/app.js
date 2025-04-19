@@ -60,7 +60,7 @@ createApp({
     },
 
     fetchDefinition() {
-      fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${this.dictionaryQuery}`)
+      fetch(`http://api.dictionaryapi.dev/api/v2/entries/en/${this.dictionaryQuery}`)
         .then(res => res.json())
         .then(data => {
           const wordData = data[0];
