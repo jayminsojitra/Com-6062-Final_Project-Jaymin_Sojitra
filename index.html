@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COMP-6062 Project</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app" class="container py-5">
+    <h1 class="text-center mb-5 text-primary">Jaymin Sojitra - 1213822</h1>
+
+    <div class="row g-4">
+      <!-- Random User -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-header bg-primary text-white">Random User</div>
+          <div class="card-body text-center">
+            <img :src="user.picture" class="rounded-circle mb-3" width="100" height="100" v-if="user.picture">
+            <p><strong>Name:</strong> {{ user.name }}</p>
+            <p><strong>Age:</strong> {{ user.age }}</p>
+            <button class="btn btn-sm btn-outline-primary" @click="fetchRandomUser">New Profile</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weather Info -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-header bg-success text-white">Weather</div>
+          <div class="card-body">
+            <input v-model="weatherQuery.city" class="form-control mb-2" placeholder="City">
+            <input v-model="weatherQuery.province" class="form-control mb-2" placeholder="Province">
+            <input v-model="weatherQuery.country" class="form-control mb-2" placeholder="Country">
+            <button class="btn btn-sm btn-outline-success w-100 mb-3" @click="fetchWeather">Get Weather</button>
+            <p><strong>Temp:</strong> {{ weather.temperature }}</p>
+            <p><strong>Wind:</strong> {{ weather.wind }}</p>
+            <p><strong>Condition:</strong> {{ weather.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dictionary -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-header bg-warning text-dark">Dictionary</div>
+          <div class="card-body">
+            <input v-model="dictionaryQuery" class="form-control mb-2" placeholder="Enter a word">
+            <button class="btn btn-sm btn-outline-warning w-100 mb-3" @click="fetchDefinition">Define</button>
+            <p><strong>Word:</strong> {{ definition.word }}</p>
+            <p><strong>Phonetic:</strong> {{ definition.phonetic }}</p>
+            <p><strong>Definition:</strong> {{ definition.meaning }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
