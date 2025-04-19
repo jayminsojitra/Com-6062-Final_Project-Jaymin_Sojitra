@@ -43,7 +43,7 @@ createApp({
 
     fetchWeather() {
       const { city, province, country } = this.weatherQuery;
-      const url = `https://comp6062.liamstewart.ca/weather-information?city=${encodeURIComponent(city)}&province=${encodeURIComponent(province)}&country=${encodeURIComponent(country)}`;
+      const url = `http://comp6062.liamstewart.ca/weather-information?city=${encodeURIComponent(city)}&province=${encodeURIComponent(province)}&country=${encodeURIComponent(country)}`;
       fetch(url)
         .then(response => response.json())
         .then(data => {
